@@ -55,8 +55,7 @@ void RtpaInitializeQueue(PRTP_AUDIO_QUEUE queue) {
     // works correctly. This is possible because the data and FEC shard count is
     // constant and known in advance.
     const unsigned char parity[] = { 0x77, 0x40, 0x38, 0x0e, 0xc7, 0xa7, 0x0d, 0x6c };
-    memcpy(&queue->rs->m[16], parity, sizeof(parity));
-    memcpy(queue->rs->parity, parity, sizeof(parity));
+    memcpy(queue->rs->p, parity, sizeof(parity));
 }
 
 static void validateFecBlockState(PRTP_AUDIO_QUEUE queue) {
